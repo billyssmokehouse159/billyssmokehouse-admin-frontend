@@ -21,7 +21,7 @@ export const ValidateToken = ({ children }: { children: ReactElement; }) => {
         }
       );
       const data = await response.json();
-      if (!data.validJwt) {
+      if (!data.validJwt || !localStorage.getItem("email")) {
         window.location.href = "/login";
       }
     };
